@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thank You – DSU Lite Community</title>
+  <meta name="description" content="Thank you for your application. Join the free DSU Lite Telegram community while our team reviews your information.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- HERO: Bilder liegen in /images (Desktop & Mobile getrennt) -->
+<header class="hero">
+  <picture class="hero__media">
+    <!-- Mobile-Bild (bis 767px Breite) -->
+    <source media="(max-width: 767px)" srcset="images/hero-mobile.webp">
+    <!-- Desktop-Bild (Standard) -->
+    <img src="images/hero-desktop.webp" alt="" fetchpriority="high" onerror="this.closest('.hero').classList.add('hero--empty')">
+  </picture>
+  <div class="hero__shade" aria-hidden="true"></div>
+
+  <div class="hero__content">
+    <h1 class="headline">
+      <span class="headline__line"><span class="reveal-line" style="--d:1">Thank You for</span></span>
+      <span class="headline__line"><span class="reveal-line" style="--d:2">Your Application!</span></span>
+    </h1>
+
+    <h2 class="subheadline reveal" style="--d:4">
+      Your Next Step: Join Our Free Telegram Community
+    </h2>
+  </div>
+</header>
+
+<main class="content">
+  <div class="description reveal" style="--d:5">
+    <p>Thank you for taking the time to submit your application!</p>
+    <p>While our team reviews your information, we invite you to join our free <strong>DSU Lite</strong> Telegram community.</p>
+    <p>Get access to exclusive updates, valuable e-commerce insights, helpful resources, and announcements from Manjeet and the team.</p>
+    <p>Click the button below to join the community and stay connected!</p>
+  </div>
+
+  <div class="cta-wrap reveal" style="--d:6">
+    <a class="cta" href="https://t.me/+gItr0MiNOlk0NTcy" target="_blank" rel="noopener">
+      <span class="cta__fill" aria-hidden="true"></span>
+      <svg class="cta__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.9 4.3 18.8 19c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.6 12.8 1.9 11.3c-1-.3-1-1 .2-1.5L20.5 2.8c.9-.3 1.6.2 1.4 1.5Z"/></svg>
+      <span class="cta__label">JOIN THE FREE TELEGRAM COMMUNITY</span>
+      <span class="cta__arrow" aria-hidden="true">→</span>
+    </a>
+  </div>
+</main>
+
+<footer class="footer">
+  <span>© <span id="year"></span> DSU Platinum</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
