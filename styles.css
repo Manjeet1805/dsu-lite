@@ -58,12 +58,12 @@ body {
 /* leichter Overlay: oben fast klar, unten ins Schwarz für lesbaren Text */
 .hero__shade {
   background:
-          linear-gradient(to bottom,
-          rgba(0, 0, 0, 0.10) 0%,
-          rgba(0, 0, 0, 0.20) 40%,
-          rgba(0, 0, 0, 0.70) 75%,
-          var(--black) 100%),
-          linear-gradient(to right, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 65%);
+    linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.10) 0%,
+      rgba(0, 0, 0, 0.20) 40%,
+      rgba(0, 0, 0, 0.70) 75%,
+      var(--black) 100%),
+    linear-gradient(to right, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 65%);
   position: relative;
   z-index: 1;
   pointer-events: none;
@@ -193,6 +193,39 @@ body {
   outline-offset: 5px;
 }
 
+
+/* ============ Glow-CTA im Hero ============ */
+.cta-wrap--hero { margin-top: clamp(24px, 3vw, 32px); }
+
+.cta--glow {
+  border: 2px solid var(--white);
+  box-shadow:
+    0 0 0 4px rgba(255, 255, 255, 0.14),
+    0 0 18px rgba(255, 255, 255, 0.55),
+    0 0 48px rgba(255, 255, 255, 0.30);
+  animation: glowPulse 3.2s ease-in-out infinite;
+  transition: color 0.45s var(--ease), transform 0.3s var(--ease), box-shadow 0.45s var(--ease);
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0 4px rgba(255, 255, 255, 0.14),
+      0 0 18px rgba(255, 255, 255, 0.55),
+      0 0 48px rgba(255, 255, 255, 0.30);
+  }
+  50% {
+    box-shadow:
+      0 0 0 6px rgba(255, 255, 255, 0.20),
+      0 0 26px rgba(255, 255, 255, 0.80),
+      0 0 72px rgba(255, 255, 255, 0.45);
+  }
+}
+
+@media (hover: hover) {
+  .cta--glow:hover { animation-play-state: paused; }
+}
+
 /* ============ Footer ============ */
 .footer {
   padding: 24px var(--gutter);
@@ -227,8 +260,8 @@ body {
      Browsern (Safari/Chrome) und auf großen Monitoren gleich */
   .hero {
     display: flex;
-    align-items: center;
-    height: clamp(480px, 74vh, 760px);
+    align-items: flex-start;
+    min-height: clamp(480px, 74vh, 760px);
   }
 
   .hero__media,
@@ -246,8 +279,9 @@ body {
 
   /* Text weiter oben im Bild */
   .hero__content {
-    align-self: center;
-    padding: 224px var(--gutter) 0; /* +80px tiefer, unter dem Gesicht */
+    align-self: flex-start;
+    /* Abstand von oben = Position unter dem Gesicht; Hero wächst mit dem Inhalt mit */
+    padding: clamp(200px, 33vh, 356px) var(--gutter) clamp(40px, 6vh, 64px);
   }
 
   .headline {
@@ -261,7 +295,8 @@ body {
   .content {
     position: relative;
     z-index: 2;
-    margin-top: calc(clamp(-170px, -15vh, -80px) + 80px);
+    margin-top: 0;
+    padding-top: 24px;
   }
 
   /* alles zentriert */
